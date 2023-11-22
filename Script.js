@@ -33,7 +33,7 @@ window.onload = function() {
     </div>
 
     <div class="header_middle">
-        <img src="../Images/icon/Logo_grey.png" HEIGHT="100px" alt="Logo" />
+        <img src="assets/icon/Logo_grey.png" HEIGHT="100px" alt="Logo" />
 
 
         <h1> Click 'N Ship </h1>
@@ -41,18 +41,18 @@ window.onload = function() {
         <div class="search-container">
             <input type="text" placeholder="Search...">
             <button type="submit">
-                <img src="../Images/icon/search-icon.png" alt="Search Icon">
+                <img src="assets/icon/search-icon.png" alt="Search Icon">
             </button>
         </div>
 
-        <img src="../Images/icon/Logo_grey.png" HEIGHT="100px"  alt="cart"/>
+        <img src="assets/icon/Logo_grey(bagonly).png" HEIGHT="100px"  alt="cart"/>
 
 
     </div>
     <div class="header_bottom">
         <nav>
             <ul>
-                <li><a href="../Html/index.html" >Home</a></li>
+                <li><a href="index.html" >Home</a></li>
                 <li class="submenu">
                     <a href="#">Men's Clothing</a>
                     <ul>
@@ -73,11 +73,11 @@ window.onload = function() {
                     <a href="#">Jewelry</a>
                 </li>
                 <li class="submenu2">
-                    <a href="../Html/about.html"  >About</a>
+                    <a href="about.html"  >About</a>
                     <ul>
                         <li><a href="#">Shipping</a></li>
                         <li><a href="#">Terms and policies </a></li>
-                        <li><a href="../Html/about.html#contact">Contact Us</a></li>
+                        <li><a href="about.html#contact">Contact Us</a></li>
                         
                     </ul>
 
