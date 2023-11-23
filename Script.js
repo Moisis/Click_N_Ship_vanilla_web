@@ -21,13 +21,18 @@ window.onload = function() {
         </p>
 
         <div class="Right_group_buttons">
-        <button >
+         <button id="My Account" style="visibility: hidden" >
+            Account 
+        </button>
+        <button id="Signup_go" >
             Sign up
         </button>
 
-        <button >
-            Login
+        <button id="Signin_go" >
+            Sign in
         </button>
+        
+       
         </div>
 
     </div>
@@ -45,7 +50,9 @@ window.onload = function() {
             </button>
         </div>
 
-        <img src="assets/icon/Logo_grey(bagonly).png" HEIGHT="100px"  alt="cart"/>
+      <a href="Cart.html">
+      <img src="assets/icon/Logo_grey(bagonly).png" HEIGHT="100px"  alt="cart"/>
+      </a>  
 
 
     </div>
@@ -54,7 +61,7 @@ window.onload = function() {
             <ul>
                 <li><a href="index.html" >Home</a></li>
                 <li class="submenu">
-                    <a href="#">Men's Clothing</a>
+                    <a href="Men_Clothing.html">Men's Clothing</a>
                     <ul>
                         <li><a href="page1.html">Page 1</a></li>
                         <li><a href="page2.html">Page 2</a></li>
@@ -62,27 +69,14 @@ window.onload = function() {
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="#">Women's Clothing</a>
+                    <a href="Woman_Clothing.html">Women's Clothing</a>
                     <ul>
                         <li><a href="page4.html">Page 4</a></li>
                         <li><a href="page5.html">Page 5</a></li>
                         <li><a href="page6.html">Page 6</a></li>
                     </ul>
                 </li>
-                <li >
-                    <a href="#">Jewelry</a>
-                </li>
-                <li class="submenu2">
-                    <a href="about.html"  >About</a>
-                    <ul>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Terms and policies </a></li>
-                        <li><a href="about.html#contact">Contact Us</a></li>
-                        
-                    </ul>
-
-                </li>
-
+            
             </ul>
         </nav>
     </div>
@@ -90,9 +84,60 @@ window.onload = function() {
 
 
     document.getElementById('footer').innerHTML = `
+ <h2>NEED HELP ? CONTACT US ON OUR HOTLINE 19991</h2>
+    <table id="footer_table">
+        <thead>
+            <tr>
+                <th>SHOPPING & ORDERS</th>
+                <th> <a class ="Hidden_link" href="about.html" target="_parent" >About Us</th>
+                <th>Social Media</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Delivery Information</td>
+                <td><a class ="Hidden_link" href="about.html#introduction" target="_parent" >About Click 'N Ship</td>
+                <td><a href="mailto:moisisgeorge97@gmail.com" style="text-decoration: none; color: #cccccc">Contact Us</td>
+            </tr>
+            <tr>
+                <td>Returns & Refund </td>
+                <td><a class ="Hidden_link" href="about.html#our-story" target="_parent" >Our Story</td>
+                <td></td>
+            </tr>
+              <tr>
+                <td>Terms & Conditions</td>
+                <td><a class ="Hidden_link" href="about.html#sustainable-practices" target="_parent" >Sustainable Practices</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a class ="Hidden_link" href="about.html#team" target="_parent" >Meet Our Team</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
   
     Copyright © <a href="" style="text-decoration: none ;">Click 'N Ship </a> all rights reserved to Miso.
 
 `;
+
+    let signupButton = document.getElementById('Signup_go');
+
+// Add a click event listener to the button
+    signupButton.addEventListener('click', function() {
+        window.location.href = 'Signup.html'
+    });
+
+
+    let signinButton = document.getElementById('Signin_go');
+
+// Add a click event listener to the button
+    signinButton.addEventListener('click', function() {
+        window.location.href = 'Signin.html'
+    });
 }
+
+
+
+
 
