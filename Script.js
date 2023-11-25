@@ -235,17 +235,17 @@ window.onload = function() {
         cardsContainer.appendChild(card);
     });
 
-    let SignoutButton = document.getElementById('Sign_out');
-
-// Add a click event listener to the button
-    SignoutButton.addEventListener('click', function() {
-        sessionStorage.setItem('Current', "false");
-        window.location.href = 'index.html'
-    });
 
 
 
 }
+
+function Signout(){
+    sessionStorage.setItem('Current', "false");
+    window.location.href = 'index.html'
+}
+
+
 // Function to create a card
 function createCard(object) {
     const card = document.createElement("div");
