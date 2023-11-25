@@ -11,15 +11,15 @@
 
     <!--Linking & Head tab-->
     <title>Click 'N Ship / Sign in </title>
-    <link rel="icon"  href="/assets/icon/Logo(NoText).png">
+    <link rel="icon"  href="assets/icon/Logo(NoText).png">
     <link rel="StyleSheet"  href="Style.css">
 
 </head>
 <body  >
 
 <header id="header"></header>
-<div class="Center_Body2">
-<form >
+<div>
+<form id="Signin_form" name="Signin_form" onsubmit="return onSubmit()" action="index.html">
     <fieldset>
         <legend>Sign In</legend>
         <label for="username">Username:</label><br>
@@ -34,7 +34,7 @@
     <label for="Remember_me" >Remember Me </label>
     <input  id="Remember_me"  name="Remember_me" type="checkbox">
 
-    <button id="SUBMIT" type="submit">Sign In</button>
+    <input id="SUBMIT" type="submit" value="Sign In"  >
     <p class="go_to_Sigin">Don't have an account ? <a href="Signup.html">SignUp</a> </p>
 </form>
 </div>

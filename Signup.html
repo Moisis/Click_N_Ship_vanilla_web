@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="Center_Body">
 <head>
 
     <!-- Setting up -->
@@ -12,47 +12,65 @@
 
     <!--Linking & Head tab-->
     <title>Click 'N Ship / Sign Up </title>
-    <link rel="icon"  href="/assets/icon/Logo(NoText).png">
+    <link rel="icon"  href="assets/icon/Logo(NoText).png">
     <link rel="StyleSheet"  href="Style.css">
 </head>
-<body class="Center_Body">
-<form action="">
+<body class="Center_Body" >
+
+<form  id="Signup_form" name="Signup_form" onsubmit="return onSubmit2()" action="index.html">
+    <h1 style="text-align: center; color: #ccc;">Sign UP</h1>
     <fieldset>
-        <legend>Sign Up</legend>
-        <label for="firstName">First Name:</label><br>
-        <input type="text" id="firstName" name="firstName" required placeholder="Enter your First Name ...">
-        <br>
+        <legend>Personal Information</legend>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
 
-        <label for="lastName">Last Name:</label><br>
-        <input type="text" id="lastName" name="lastName" required placeholder="Enter your Last Name ..."><br>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required><br>
 
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required placeholder="Pick UserName ..."><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required><br>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required placeholder="Enter your Email ..."><br>
-
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required placeholder="Pick Password ..."><br>
-
-        <label for="confirm_password">Password:</label><br>
-        <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirm Password ..."><br>
-
-
-        <label for="phoneNumber">Phone Number:</label><br>
-        <input type="tel" id="phoneNumber" name="phoneNumber" required placeholder="Enter your Phone number  ..."><br>
-
-        <label for="country">Country:</label><br>
-        <select id="country" name="country" required  style="width: fit-content" >
-            <option value="Eg">Egypt</option>
-            <option value="ca">United States</option>
-        </select>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
     </fieldset>
 
+    <fieldset>
+        <legend>Account Information</legend>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
 
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+    </fieldset>
 
-    <button id="SUBMIT" type="submit">Sign Up</button>
-    <p class="go_to_Sigin">Already have an account ? <a href="Signin.html">Signin</a> </p>
+    <fieldset>
+        <legend>Contact Information</legend>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" required><br>
+
+        <label for="address">Address:</label><br>
+        <textarea id="address" name="address" rows="4" required></textarea><br>
+
+        <label for="country">Country:</label>
+        <select id="country" name="country" required>
+            <option value="Eg">Egypt</option>
+            <option value="us">United States</option>
+            <option value="ca">Canada</option>
+            <option value="uk">United Kingdom</option>
+        </select><br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Gender</legend>
+        <label>Male <input type="radio" id="male" name="gender" value="male">
+        </label>
+        <br>
+        <label>Female<input type="radio" id="female" name="gender" value="female">
+        </label>
+    </fieldset>
+
+    <input id="SUBMIT2" type="submit" value="Sign UP">
+    <p class="go_to_Sigin">Already have an account? <a href="Signin.html">Signin</a></p>
 </form>
 
 

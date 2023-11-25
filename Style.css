@@ -30,13 +30,14 @@ html, body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    height: fit-content;
 
 
 }
 
 .header_top {
     margin-top: 10px ;
-    justify-content: space-evenly;
+
 
 }
 .header_top select {
@@ -129,7 +130,7 @@ nav {
 
 }
 
-nav ul {
+nav ul{
     list-style: none;
     display: flex;
 
@@ -153,7 +154,7 @@ nav a {
     display: none;
     position: absolute;
     background-color: #ffff;
-
+    z-index: 1;
     border: 1px solid #ccc;
     border-radius: 20px;
 }
@@ -171,12 +172,13 @@ nav a:hover{
 }
 
 .submenu:hover > ul {
-  display: inline-block;
+  display: block;
 
 
     /* display : block ; */
 
 }
+
 
 .submenu2:hover > ul {
     display: flex;
@@ -186,11 +188,7 @@ nav a:hover{
 
 }
 
-/*body */
-video {
-    max-width: 100%;
-    height: auto;
-}
+
 
 
 
@@ -249,33 +247,33 @@ th {
 
 
 /*Sign up & Sign In Page*/
+
+
 .Center_Body{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100%;
     background-image: url("assets/dark_shopping_bags.jpg" );
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
+
 
 }
 
 form {
-    width:70%;
     height:fit-content;
-    margin-top:10px ;
-    margin-left: 20%;
+    margin: 0 7% 7% 7% ;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background: transparent;
     border: 2px solid rgba(255,255,255,0.5);
     border-radius: 20px;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(80px);
 
 
+
+}
+
+#Signin_form label{
+    color: #454545;
 
 }
 
@@ -295,16 +293,15 @@ legend {
 }
 
 label {
-    color: #6180c9;
+    color: #ffffff;
 }
 
 input {
     width: 50%;
     padding: 8px;
     margin-bottom: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
+
+
 }
 #Remember_me{
     width: 10%;
@@ -328,9 +325,26 @@ input {
     border-radius: 4px;
     cursor: pointer;
     font-size: 1em;
+
 }
 
 #SUBMIT:hover {
+    background-color: #15213D;
+}
+
+#SUBMIT2 {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+
+}
+
+#SUBMIT2:hover {
     background-color: #15213D;
 }
 
@@ -338,3 +352,107 @@ input {
     color: #6180c9;
 }
 
+#Sign_out {
+    margin: 0 50% 50% ;
+
+    height: 60px;
+    width: 100px;
+    font-size: 14px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+}
+#Sign_out:hover{
+    background-color: #15213D;
+    color: #cccccc;
+
+
+}
+
+
+/*Shopping Details*/
+
+.Center_Body_Shopping{
+    padding: 20px;
+    margin: 20px;
+
+
+}
+
+/*Men*/
+.Men_category{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+
+}
+
+.Men_category_jacket, .Men_category_pullovers , .Men_category_trousers{
+    height: 776px;
+    width: 400px;
+    color: #15213D;
+    text-align: left;
+    font-size: 30px;
+
+}
+
+.Men_category_jacket{
+    background-image: url("assets/Men/Jacket.jpg");
+
+
+
+}
+.Men_category_trousers{
+    background-image: url("assets/Men/Trousers.jpg");
+
+}
+.Men_category_pullovers{
+    background-image: url("assets/Men/Pullovers.jpg");
+
+}
+
+.Men_background{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("assets/Men/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.Men_background video{
+  height: 700px;
+}
+
+/*MEN jacket */
+
+#MJacket_cards-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+
+
+}
+
+.MJ-items{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+
+/*cart*/
