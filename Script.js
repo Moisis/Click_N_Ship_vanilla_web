@@ -1,6 +1,6 @@
 // On Load Document
-
-function get_headertop(){
+let current_Object ;
+function get_header_top(){
     let right_top;
 
     let left_top=
@@ -31,25 +31,6 @@ function get_headertop(){
     
     `;
 
-
-
-    if (sessionStorage.getItem('Current') === "true"){``
-        right_top=`
-           <div id="Right_group_buttons"  class="Right_group_buttons">
-        <button id="My_Account" style="visibility: visible">
-            Account
-        </button>
-    <button id="Signup_go" style="visibility: hidden">
-        Sign up
-    </button>
-
-    <button id="Signin_go" style="visibility: hidden">
-        Sign in
-    </button>
-    </div>
-        
-        `
-    }else {
          right_top=`
           <div id="Right_group_buttons"  class="Right_group_buttons">
          <button id="My_Account" style="visibility: hidden">
@@ -65,7 +46,7 @@ function get_headertop(){
         </div>    
          
          `
-    }
+
 
 
 
@@ -74,7 +55,7 @@ function get_headertop(){
 }
 
 
-function get_headertmid(){
+function get_header_mid(){
 
 
     return `
@@ -102,7 +83,7 @@ function get_headertmid(){
     `
 
 }
-function get_headerbottom(){
+function get_header_bottom(){
 
     return `
     
@@ -110,6 +91,11 @@ function get_headerbottom(){
         <nav>
             <ul>
                 <li><a href="index.html" >Home</a></li>
+                
+                <li class="Big_submenu"> 
+                <a href="#">Clothings</a>
+                <ul>
+                
                 <li class="submenu">
                     <a href="Men_Clothing.html">Men's Clothing</a>
                     <ul>
@@ -126,6 +112,8 @@ function get_headerbottom(){
                         <li><a href="Woman_Clothing.html">Pants </a></li>
                     </ul>
                 </li>
+                </ul>
+                 </li>
             
             </ul>
         </nav>
@@ -139,16 +127,30 @@ window.onload = function() {
 
     // Writing the header on each file (or a desired page )
 
-
-    var headertop = get_headertop()
-    let headermid = get_headertmid()
-    let headerbottom = get_headerbottom()
-
-    document.getElementById('header').innerHTML+= headertop
-    document.getElementById('header').innerHTML+= headermid
-    document.getElementById('header').innerHTML+= headerbottom
+    let header_top = get_header_top()
+    let header_mid = get_header_mid()
+    let header_bottom = get_header_bottom()
 
 
+
+    document.getElementById('header').innerHTML+= header_top
+    document.getElementById('header').innerHTML+= header_mid
+    document.getElementById('header').innerHTML+= header_bottom
+
+
+    if (sessionStorage.getItem('Current') === "true"){
+
+        document.getElementById('My_Account').style.visibility = 'visible' ;
+        document.getElementById('Signup_go').style.visibility = 'hidden' ;
+        document.getElementById('Signin_go').style.visibility = 'hidden' ;
+
+        }else {
+
+        document.getElementById('My_Account').style.visibility = 'hidden' ;
+        document.getElementById('Signup_go').style.visibility = 'visible' ;
+        document.getElementById('Signin_go').style.visibility = 'visible' ;
+
+    }
 
 // Writing the  footer on each file (or a desired page )
     document.getElementById('footer').innerHTML = `
@@ -238,13 +240,31 @@ window.onload = function() {
 
 
 
+
 }
+
+
+
+
 
 function Signout(){
     sessionStorage.setItem('Current', "false");
     window.location.href = 'index.html'
 }
 
+
+function Go_to_Product_Screen() {
+``
+
+    window.location.href = "Product_Details.html"
+
+    document.getElementById("Product_details_img").src = current_Object.photo_url;
+    document.getElementById("Product_details_name").innerHTML = current_Object.name;
+    document.getElementById("Product_details_price").innerText = current_Object.price;
+
+    window.location.href = "Product_Details.html"
+
+}
 
 // Function to create a card
 function createCard(object) {
@@ -253,12 +273,21 @@ function createCard(object) {
 
     // Populate card content
     card.innerHTML = `
+
               <img class="MJ-img" src="${object.photo_url}" height="200px" alt="${object.jacket_name}"> 
             <h6 class="MJ-name">${object.jacket_name}</h6>
             <p class="MJ-price">Price: ${object.price} USD </p>
            
         `;
 
+
+    card.addEventListener("click" , function (){
+        alert(object.jacket_name) ;
+        current_Object = object
+        Go_to_Product_Screen();
+
+
+    })
     return card;
 }
 
@@ -337,13 +366,11 @@ let men_jackets_list =[
     new Men_Jackets(5 , "COW LEATHER BIKER JACKET" , "assets/Men/Jacket/Jacket5.jpg" ,300 ),
 ]
 
-
 function onSubmit() {
     // Disable the submit button to prevent double submission
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     var email = document.getElementById("email").value;
-
 
     userList.forEach((currentUser) => {
         if (username === currentUser.username && password === currentUser.password && email === currentUser.email) {
@@ -360,7 +387,6 @@ function onSubmit() {
         sessionStorage.setItem('Current', "false");
         resetForm(); // Reset the form on failure
     }
-
     // Re-enable the submit button
     document.getElementById("SUBMIT").disabled = false;
 
@@ -369,8 +395,9 @@ function onSubmit() {
 }
 
 
-
 function onSubmit2() {
+
+    //Getting all the inputs
 
     const firstName = document.getElementById("firstName").value;
     const lastName = document.getElementById("lastName").value;
@@ -425,6 +452,7 @@ function resetForm2() {
 function redirectToIndex() {
     window.location.href = "index.html";
 }
+
 
 
 
