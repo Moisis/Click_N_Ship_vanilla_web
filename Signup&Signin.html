@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Setting up -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!--Linking & Head tab-->
+    <title>Click 'N Ship / SignUp | SignIn </title>
+    <link rel="icon"  href="assets/icon/Logo(NoText).png">
+    <link rel="StyleSheet"  href="Style.css">
+
+
+</head>
+<body class="Center_Body">
+
+<img class="Cross_exit"  src="assets/icon/cross.png" alt="logo"  width="40px" height="40px" onclick="redirectToIndex()">
+
+<div class="container">
+    <div class="forms-container">
+        <div class="form-control signup-form">
+            <form action="#">
+                <h2>Signup</h2>
+                <!-- Username field -->
+                <fieldset>
+                    <legend>Account Information</legend>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required />
+                    <br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required />
+                    <br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required />
+                    <br>
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required />
+                </fieldset>
+
+                <!-- Gender field -->
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <label >Gender:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label for="male">Male</label>
+
+                        <input type="radio" id="female" name="gender" value="female" required>
+                        <label for="female">Female</label>
+
+                        <input type="radio" id="other" name="gender" value="other" required>
+                        <label for="other">Other</label>
+                    </div>
+
+                    <br>
+
+                <!-- Date of Birth field -->
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required />
+                </fieldset>
+
+                <!-- Phone Number field -->
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
+                </fieldset>
+
+                <button>Signup</button>
+            </form>
+
+
+
+        </div>
+        <div class="form-control signin-form">
+            <form id="Signin_form" name="Signin_form" onsubmit="return onSubmit()" action="index.html">
+                <h2>Signin</h2>
+                <label for="email_login">Email:</label>
+                <input type="text"  id="email_login"  placeholder="Email" name="email" required />
+                <label for="password_login">Password:</label>
+                <input type="password"  id="password_login" placeholder="Password"  name="password" required />
+<!--                <button >Signin</button>-->
+                <input id="SUBMIT" type="submit" value="Sign In"  >
+            </form>
+
+        </div>
+    </div>
+    <div class="intros-container">
+        <div class="intro-control signin-intro">
+            <div class="intro-control__inner">
+                <img src="assets/icon/Logo(Nobg).png" alt="logo" width="200px" height="200px">
+                <h2>Welcome back!</h2>
+                <p>
+                    Welcome back! We are so happy to have you here. It's great to see you again. We hope you had a safe and enjoyable time away.
+                </p>
+                <button id="signup-btn">No account yet? Signup.</button>
+            </div>
+        </div>
+        <div class="intro-control signup-intro">
+            <div class="intro-control__inner">
+                <img src="assets/icon/Logo(Nobg).png" alt="logo" width="200px" height="200px">
+                <h2>Come join us!</h2>
+                <p>
+                    We are so excited to have you here.If you haven't already, create an account to get access to exclusive offers, rewards, and discounts.
+                </p>
+                <button id="signin-btn">Already have an account? Signin.</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="Script.js"></script>
+
+
+</body>
+</html>

@@ -33,14 +33,11 @@ function get_header_top(){
 
          right_top=`
           <div id="Right_group_buttons"  class="Right_group_buttons">
-         <button id="My_Account" style="visibility: hidden">
+         <button id="My_Account" >
             Account 
         </button>
-        <button id="Signup_go"  style="visibility: visible">
-            Sign up
-        </button>
 
-        <button id="Signin_go" style="visibility: visible">
+        <button id="Signin_go" >
             Sign in
         </button>
         </div>    
@@ -79,9 +76,8 @@ function get_header_mid(){
       
     </div> 
 
-    
+  
     `
-
 }
 function get_header_bottom(){
 
@@ -93,7 +89,9 @@ function get_header_bottom(){
                 <li><a href="index.html" >Home</a></li>
                 
                 <li class="Big_submenu"> 
-                <a href="#">Clothings</a>
+ 
+                 <p>Clothings</p>
+               
                 <ul>
                 
                 <li class="submenu">
@@ -125,6 +123,7 @@ function get_header_bottom(){
 
 window.onload = function() {
 
+
     // Writing the header on each file (or a desired page )
 
     let header_top = get_header_top()
@@ -132,23 +131,21 @@ window.onload = function() {
     let header_bottom = get_header_bottom()
 
 
+    document.getElementById('header').innerHTML += header_top
+    document.getElementById('header').innerHTML += header_mid
+    document.getElementById('header').innerHTML += header_bottom
 
-    document.getElementById('header').innerHTML+= header_top
-    document.getElementById('header').innerHTML+= header_mid
-    document.getElementById('header').innerHTML+= header_bottom
 
+    if (sessionStorage.getItem('Current') === "true") {
 
-    if (sessionStorage.getItem('Current') === "true"){
+        document.getElementById('My_Account').style.visibility = 'visible';
+        document.getElementById('Signin_go').style.visibility = 'hidden';
 
-        document.getElementById('My_Account').style.visibility = 'visible' ;
-        document.getElementById('Signup_go').style.visibility = 'hidden' ;
-        document.getElementById('Signin_go').style.visibility = 'hidden' ;
+    } else {
 
-        }else {
+        document.getElementById('My_Account').style.visibility = 'hidden';
 
-        document.getElementById('My_Account').style.visibility = 'hidden' ;
-        document.getElementById('Signup_go').style.visibility = 'visible' ;
-        document.getElementById('Signin_go').style.visibility = 'visible' ;
+        document.getElementById('Signin_go').style.visibility = 'visible';
 
     }
 
@@ -197,22 +194,16 @@ window.onload = function() {
 
 
     /// Nav for auth
-    //Sign up
-
-    let signupButton = document.getElementById('Signup_go');
-
-// Add a click event listener to the button
-    signupButton.addEventListener('click', function() {
-        window.location.href = 'Signup.html'
-    });
-
 
     let signinButton = document.getElementById('Signin_go');
 
+    if (signinButton) {
+
 // Add a click event listener to the button
-    signinButton.addEventListener('click', function() {
-        window.location.href = 'Signin.html'
+    signinButton.addEventListener('click', function () {
+        window.location.href = 'Signup&Signin.html'
     });
+    }
 
 
 
@@ -221,27 +212,42 @@ window.onload = function() {
 
     let AccountButton = document.getElementById('My_Account');
 
+    if (AccountButton) {
 // Add a click event listener to the button
-    AccountButton.addEventListener('click', function() {
-        window.location.href = 'my_account.html'
-    });
+        AccountButton.addEventListener('click', function () {
+            window.location.href = 'my_account.html'
+        });
 
-
+    }
 
     //Men
 
-    let cardsContainer = document.getElementById("MJacket_cards-container");
+    let JacketcardsContainer = document.getElementById("MJacket_cards-container")
 
+    if(JacketcardsContainer){
     men_jackets_list.forEach(object => {
         const card = createCard(object);
-        cardsContainer.appendChild(card);
+       JacketcardsContainer.appendChild(card);
     });
+    }
+
+    let Trousers_cardsContainer = document.getElementById("MTrousers_cards-container");
 
 
+    if (Trousers_cardsContainer) {
+        men_jackets_list.forEach(object => {
+            const card1 = createCard(object);
+            Trousers_cardsContainer.appendChild(card1);
+        });
+    }
 
 
 
 }
+
+
+
+
 
 
 
@@ -254,7 +260,6 @@ function Signout(){
 
 
 function Go_to_Product_Screen() {
-``
 
     window.location.href = "Product_Details.html"
 
@@ -274,7 +279,7 @@ function createCard(object) {
     // Populate card content
     card.innerHTML = `
 
-              <img class="MJ-img" src="${object.photo_url}" height="200px" alt="${object.jacket_name}"> 
+              <img class="MJ-img" src="${object.photo_url}" height="600px" alt="${object.jacket_name}"> 
             <h6 class="MJ-name">${object.jacket_name}</h6>
             <p class="MJ-price">Price: ${object.price} USD </p>
            
@@ -327,27 +332,36 @@ function Show_article(x){
 // Local Database
 
 class User {
-    constructor(firstName, lastName, username, email, password, phoneNumber, country, address, gender) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    constructor(Name, username, email, password, phoneNumber, country, address, gender) {
+        this.Name = Name;
         this.username = username;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
-        this.country = country;
-        this.address = address;
         this.gender = gender;
     }
 }
 //Data Base ??
 // Create a list of users
 let userList = [
-    new User("John", "Doe", "john_doe123", "john.doe@example.com", "securepassword", "123-456-7890", "United States", "123 Main Street", "Male"),
-    new User("Alice", "Smith", "alice_smith456", "alice.smith@example.com", "strongpassword", "987-654-3210", "Egypt", "456 Oak Avenue", "Female"),
-    new User("Bob", "Johnson", "bob_j", "bob.johnson@example.com", "password123", "555-123-4567", "Egypt", "789 Pine Street", "Male")
+    new User("John Doe", "john_doe123", "john.doe@example.com", "securepassword", "123-456-7890", "Male"),
+    new User("Alice Smith", "alice_smith456", "alice.smith@example.com", "strongpassword", "987-654-3210", "Female"),
+    new User("Bob Johnson", "bob_j", "bob.johnson@example.com", "password123", "555-123-4567", "Male")
 ];
 
 class Men_Jackets {
+    constructor(id , jacket_name , jacketDescription,photo_url , price  ) {
+        this.id = id;
+        this.jacket_name =jacket_name;
+        this.jacketDescription = jacketDescription;
+        this.photo_url = photo_url;
+        this.price = price;
+
+
+    }
+}
+
+class Men_Trousers {
     constructor(id , jacket_name ,photo_url , price  ) {
         this.id = id;
         this.jacket_name =jacket_name;
@@ -359,21 +373,28 @@ class Men_Jackets {
 }
 
 let men_jackets_list =[
-    new Men_Jackets(1 , "SLIM FIT TRUCKER CORDUROY JACKET" , "assets/Men/Jacket/Jacket1.jpg" ,123  ),
-    new Men_Jackets(2 , "SLIM  olive FIT TRUCKER CORDUROY JACKET" , "assets/Men/Jacket/Jacket2.jpg" ,125  ),
-    new Men_Jackets(3 , "REGULAR FIT CORDUROY JACKET" , "assets/Men/Jacket/Jacket3.jpg" ,110 ),
-    new Men_Jackets(4 , "TRUCKER DENIM JACKET" , "assets/Men/Jacket/Jacket4.jpg" ,115 ),
-    new Men_Jackets(5 , "COW LEATHER BIKER JACKET" , "assets/Men/Jacket/Jacket5.jpg" ,300 ),
+    new Men_Jackets(1 , "SLIM FIT TRUCKER CORDUROY JACKET" ,"", "assets/Men/Jacket/Jacket1.jpg" ,123  ),
+    new Men_Jackets(2 , "SLIM  olive FIT TRUCKER CORDUROY JACKET" ,"", "assets/Men/Jacket/Jacket2.jpg" ,125  ),
+    new Men_Jackets(3 , "REGULAR FIT CORDUROY JACKET" , "","assets/Men/Jacket/Jacket3.jpg" ,110 ),
+    new Men_Jackets(4 , "TRUCKER DENIM JACKET" , "","assets/Men/Jacket/Jacket4.jpg" ,115 ),
+    new Men_Jackets(5 , "COW LEATHER BIKER JACKET" , "","assets/Men/Jacket/Jacket5.jpg" ,300 ),
+    new Men_Jackets(6 , "SLIM FIT TRUCKER JACKET" , "","assets/Men/Jacket/Jacket6.jpg" ,210),
+    new Men_Jackets(7 , "SLIM FIT LIGHT JACKET" , "","assets/Men/Jacket/Jacket7.jpg" ,230 ),
+    new Men_Jackets(8 , "DENIM JACKET WITH FAUX FUR COLLAR & LINING","" , "assets/Men/Jacket/Jacket8.jpg" ,180 ),
+    new Men_Jackets(9 , "DENIM JACKET WITH FAUX FUR COLLAR & LINING" , "","assets/Men/Jacket/Jacket9.jpg" ,150),
+    new Men_Jackets(10 , "REGULAR FIT SAFARI OVERSHIRT" , "","assets/Men/Jacket/Jacket10.jpg" ,120 ),
+
 ]
 
 function onSubmit() {
     // Disable the submit button to prevent double submission
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    var email = document.getElementById("email").value;
+    var password = document.getElementById("password_login").value;
+    var email = document.getElementById("email_login").value;
+    console.log(password)
+    console.log(email)
 
     userList.forEach((currentUser) => {
-        if (username === currentUser.username && password === currentUser.password && email === currentUser.email) {
+        if (password === currentUser.password && email === currentUser.email) {
             alert("Signing Successful");
             sessionStorage.setItem('Current', "true");
             resetForm(); // Reset the form on success
@@ -454,6 +475,13 @@ function redirectToIndex() {
 }
 
 
+const signupBtn = document.getElementById("signup-btn");
+const signinBtn = document.getElementById("signin-btn");
+const mainContainer = document.querySelector(".container");
 
-
-
+signupBtn.addEventListener("click", () => {
+    mainContainer.classList.toggle("change");
+});
+signinBtn.addEventListener("click", () => {
+    mainContainer.classList.toggle("change");
+});
