@@ -22,11 +22,12 @@
 <div class="container">
     <div class="forms-container">
         <div class="form-control signup-form">
-            <form action="#">
+            <form id="Signup_form" name="Signup_form" onsubmit="return onSubmit2()" action="index.html">
                 <h2>Signup</h2>
                 <!-- Username field -->
                 <fieldset>
                     <legend>Account Information</legend>
+
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" placeholder="Enter your username" required />
                     <br>
@@ -40,7 +41,6 @@
                     <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required />
                 </fieldset>
 
-                <!-- Gender field -->
                 <fieldset>
                     <legend>Personal Information</legend>
                     <label >Gender:</label>
@@ -54,14 +54,10 @@
                         <input type="radio" id="other" name="gender" value="other" required>
                         <label for="other">Other</label>
                     </div>
-
-                    <br>
-
                 <!-- Date of Birth field -->
                     <label for="dob">Date of Birth:</label>
                     <input type="date" id="dob" name="dob" required />
                 </fieldset>
-
                 <!-- Phone Number field -->
                 <fieldset>
                     <legend>Contact Information</legend>
@@ -69,7 +65,7 @@
                     <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
                 </fieldset>
 
-                <button>Signup</button>
+                <input id="SUBMIT2" type="submit" value="Sign Up"  >
             </form>
 
 
