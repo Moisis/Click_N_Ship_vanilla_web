@@ -124,37 +124,11 @@ function get_header_bottom(){
 
 }
 
-window.onload = function() {
+function get_footer(){
 
-
-    // Writing the header on each file (or a desired page )
-
-    if (document.getElementById('header') ) {
-        let header_top = get_header_top()
-        let header_mid = get_header_mid()
-        let header_bottom = get_header_bottom()
-
-        document.getElementById('header').innerHTML += header_top
-        document.getElementById('header').innerHTML += header_mid
-        document.getElementById('header').innerHTML += header_bottom
-
-
-        if (sessionStorage.getItem('Current') === "true") {
-
-            document.getElementById('My_Account').style.visibility = 'visible';
-            document.getElementById('Signin_go').style.visibility = 'hidden';
-
-        } else {
-
-            document.getElementById('My_Account').style.visibility = 'hidden';
-
-            document.getElementById('Signin_go').style.visibility = 'visible';
-
-        }
-
-// Writing the  footer on each file (or a desired page )
-        document.getElementById('footer').innerHTML = `
- <h2>NEED HELP ? CONTACT US ON OUR HOTLINE 19991</h2>
+    return `
+    
+    <h2>NEED HELP ? CONTACT US ON OUR HOTLINE 19991</h2>
     <table id="footer_table">
         <thead>
             <tr>
@@ -193,7 +167,43 @@ window.onload = function() {
   
     Copyright © <a href="" style="text-decoration: none ; color: #cccccc;">Click 'N Ship </a> all rights reserved to Miso.
 
-`;
+    
+    ` ;
+}
+
+
+window.onload = function() {
+
+
+    // Writing the header on each file (or a desired page )
+
+    if (document.getElementById('header' )  ) {
+        let header_top = get_header_top()
+        let header_mid = get_header_mid()
+        let header_bottom = get_header_bottom()
+
+        document.getElementById('header').innerHTML += header_top
+        document.getElementById('header').innerHTML += header_mid
+        document.getElementById('header').innerHTML += header_bottom
+
+
+        if (sessionStorage.getItem('Current') === "true") {
+
+            document.getElementById('My_Account').style.visibility = 'visible';
+            document.getElementById('Signin_go').style.visibility = 'hidden';
+
+        } else {
+
+            document.getElementById('My_Account').style.visibility = 'hidden';
+
+            document.getElementById('Signin_go').style.visibility = 'visible';
+
+        }
+
+// Writing the  footer on each file (or a desired page )
+        document.getElementById('footer').innerHTML =  get_footer() ;
+ 
+
     }
 
 
@@ -208,9 +218,6 @@ window.onload = function() {
         window.location.href = 'Signup&Signin.html'
     });
     }
-
-
-
 
 
 
@@ -263,7 +270,7 @@ window.onload = function() {
         var receivedObject = JSON.parse(objectString);
 
         console.log(receivedObject)
-        // Update HTML elements
+        // Update HTML elements Content
         document.getElementById("Product_details_img").src = receivedObject.photo_url;
         document.getElementById("Product_details_name").innerHTML = receivedObject.name;
         document.getElementById("Product_details_price").innerHTML = receivedObject.price + '$';
@@ -276,13 +283,14 @@ window.onload = function() {
 }
 
 
-
+//Sign Out
 function Signout(){
     sessionStorage.setItem('Current', "false");
+    alert("Signing Out Successfully")
     window.location.href = 'index.html'
 }
 
-
+// Redirect
 function Go_to_Product_Screen() {
     // Redirect to the receiver page
     window.location.href = 'Product_Details.html';
@@ -317,7 +325,7 @@ function createCard(object) {
 }
 
 
-//Show / hide
+//Show / hide Function
 function Show_article(x){
 
     var myArticle0 = document.getElementById("Delivery_Info");
@@ -366,9 +374,9 @@ class User {
 //Data Base ??
 // Create a list of users
 let userList = [
-    new User("John Doe", "john_doe123", "john.doe@example.com", "securepassword", "123-456-7890", "Male","2000-05-23"),
-    new User("Alice Smith", "alice_smith456", "alice.smith@example.com", "strongpassword", "987-654-3210", "Female","2000-07-01"),
-    new User("Bob Johnson", "bob_j", "bob.johnson@example.com", "password123", "555-123-4567", "Male" ,"2000-01-01")
+    new User("john_doe123", "john.doe@example.com", "securepassword", "123-456-7890", "Male","2000-05-23"),
+    new User("alice_smith456", "alice.smith@example.com", "strongpassword", "987-654-3210", "Female","2000-07-01"),
+    new User( "bob_j", "bob.johnson@example.com", "password123", "555-123-4567", "Male" ,"2000-01-01")
 ];
 
 class Men_Jackets {
@@ -455,7 +463,7 @@ let men_trousers_list =[
 ]
 
 
-
+//Login Function
 function onSubmit() {
     // Disable the submit button to prevent double submission
     var password = document.getElementById("password_login").value;
@@ -485,7 +493,7 @@ function onSubmit() {
     return false;
 }
 
-
+//Signup Function
 function onSubmit2() {
 
 
@@ -569,6 +577,8 @@ function addToCart(){
 
 }
 
+
+//Changing background
 function changeBackground(button) {
     // Remove the "selected" class from all buttons
     const buttons = document.querySelectorAll('.size-choose button');
@@ -577,5 +587,5 @@ function changeBackground(button) {
     // Add the "selected" class to the clicked button
     button.classList.add('selected');
 }
-// Cart
+
 

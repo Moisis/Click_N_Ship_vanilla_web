@@ -5,7 +5,8 @@ html, body {
     font-family: "Poppins", serif;
     background-color: #ececec;
     height: 100%;
-
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .about{
@@ -172,32 +173,22 @@ nav p:hover ,nav a:hover{
 }
 
 
-
-
 /* Sub-navigation Styles */
+/* First level */
 .submenu ul {
     display: none;
-    position: absolute;
+    position: relative;
     background-color: #ffff;
     z-index: 1;
     border: 1px solid #ccc;
-
-}
-.submenu2 ul {
-    display: none;
-    position: absolute;
-    background-color: #ffff;
-    border: 1px solid #ccc;
-
 }
 
-.Big_submenu p{
-    margin-top: 0  ;
-
+/* Second level */
+.Big_submenu p {
+    margin-top: 0;
 }
 
-.Big_submenu ul{
-
+.Big_submenu ul {
     display: none;
     position: absolute;
     background-color: #ffff;
@@ -206,28 +197,39 @@ nav p:hover ,nav a:hover{
     border-radius: 10px;
 }
 
+/* Third level */
+.Big_submenu ul li {
+    position: relative;
+}
 
+.Big_submenu ul li > ul {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #ffff;
+    z-index: 1;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* Show third level on hover */
+.Big_submenu ul li:hover > ul {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Show first level on hover */
+.submenu:hover > ul {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Show second level on hover */
 .Big_submenu:hover > ul {
     display: flex;
-    flex-direction: row;
-    gap: 70px;
-
-
+    flex-direction: column;
 }
-
-
-
-
-.submenu:hover > ul {
-  display: flex;
-    flex-direction: row;
-    margin-left: 20px;
-
-
-}
-
-
-
 
 
 /*footer*/
@@ -302,24 +304,21 @@ th {
 .container {
     background-color: #fff;
     width: 70%;
-
-
+    justify-content: center;
     height: 90%;
-    position: relative;
-    overflow-x: hidden;
+    overflow:hidden ;
 }
 .container .forms-container {
     position: relative;
     width: 50%;
     text-align: center;
+
 }
 .container .forms-container .form-control {
     position: absolute;
     width: 100%;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    height: 480px;
     transition: all 0.5s ease-in;
 }
 
@@ -327,46 +326,41 @@ th {
     display: flex;
     flex-direction: column;
     margin: 0 30px;
+
 }
 .container .forms-container .form-control form input {
     margin: 10px 0;
     border: none;
-    padding: 15px;
+    padding: 10px;
     background-color: #efefef;
     border-radius: 5px;
 }
-.container .forms-container .form-control form button {
-    border: none;
-    padding: 20px;
-    margin-top: 5px;
-    background-color: #059669;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-}
-.container .forms-container .form-control form button:focus {
-    outline: none;
-}
+
+
+
 
 
 .container .forms-container .form-control.signup-form {
     opacity: 0;
     z-index: 1;
     left: 200%;
-    height: fit-content;
+
+
+
 }
 .container .forms-container .form-control.signin-form {
     opacity: 1;
     z-index: 2;
     left: 0;
-    height: fit-content;
+    height: 0;
+    margin: 20% auto    ;
 }
 .container .intros-container {
     position: relative;
     left: 50%;
     width: 50%;
-
     text-align: center;
+
 }
 .container .intros-container .intro-control {
     position: absolute;
@@ -389,7 +383,9 @@ th {
     margin: 10px 0;
     cursor: pointer;
 }
-
+.container .intros-container .intro-control .intro-control__inner {
+    margin: 0 30px;
+}
 
 .container .intros-container .intro-control.signin-intro {
     opacity: 1;
@@ -456,18 +452,17 @@ th {
     color: #6180c9;
 }
 
-#Sign_out {
-    margin: 0 50% 50% ;
+#Sign_out , #Update_Email , #Change_Password {
 
     height: 60px;
-    width: 100px;
+width: 200px;
     font-size: 14px;
     padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
 }
-#Sign_out:hover{
+#Sign_out:hover ,#Update_Email:hover , #Change_Password:hover{
     background-color: #15213D;
     color: #cccccc;
 
@@ -718,12 +713,35 @@ aside{
 
 
 
+/*My Account Page*/
 
 
+.Profile{
+
+        width: 75%;
+        margin: 0 auto;
+        padding: 15px;
+        display: flex;
+        gap: 200px;
+        background-color: #fff;
+        max-width: 100vw;
+        height: 80%;
+        position: relative;
+
+
+}
+
+.account-settings{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50%;
+
+}
 
 /*VIDEO*/
 video {
-    width: 98%;
-    padding: 20px;
+    width: 100%;
+    padding: 2px;
+
 
 }
