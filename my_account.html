@@ -19,10 +19,47 @@
 <header id="header"></header>
 
 
-<div class="my_account" style="height: 80%">
+    <main class="Profile">
+        <section class="profile-section">
+            <h2>Welcome, [User's Name]!</h2>
 
-<button id="Sign_out" onclick="Signout()" onmouseover="onhover_color()"> Sign Out</button>
-</div>
+            <!-- User Information -->
+            <div class="user-info">
+                <h3>Your Information</h3>
+                <p>Email: [john.doe@example.com]</p>
+                <p>Shipping Address: [Home]</p>
+                <p>Payment Method: [CASH $$]</p>
+                <!-- Add more user information as needed -->
+            </div>
+
+            <!-- Order History -->
+            <div class="order-history">
+                <h3>Your Order History</h3>
+                <ul>
+                    <li>
+                        <span>Order #12345</span>
+                        <span>Date: 19/12/2023</span>
+                        <span>Total: $200</span>
+
+                    </li>
+                </ul>
+            </div>
+            <!-- Account Settings -->
+
+                <h3>Account Settings</h3>
+            <div class="account-settings">
+                <button id="Change_Password" onclick="alert('Password Updated') ;">Change Password</button>
+                <button id="Update_Email" onclick="alert('Email Updated') ;">Update Email Address</button>
+                <button id="Sign_out" onclick="Signout()" > Sign Out</button>
+            </div>
+        </section>
+    </main>
+
+
+
+
+
+
 
 <footer id="footer"></footer>
 

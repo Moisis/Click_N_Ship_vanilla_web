@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
     <!--Linking & Head tab-->
-    <title>Click 'N Ship / Home </title>
+    <title>Click 'N Ship / Cart </title>
     <link rel="icon"  href="/assets/icon/Logo(NoText).png">
     <link rel="StyleSheet"  href="Style.css">
 
@@ -19,12 +19,40 @@
 <header id="header">
 </header>
 
-<h1 style="text-align: center;">Cart</h1>
 <br>
-<br>
-<h1 id="Cart_Status" style="text-align: center;">Cart is Empty</h1>
 
-<br>
+
+<div class="container2">
+    <!--  Shopping cart table wrapper  -->
+    <div id="shopping-cart">
+        <div class="txt-heading">
+            <h1>Shopping cart</h1>
+        </div>
+        <a  id="btnEmpty">Empty Cart</a>
+        <table class="tbl-cart" >
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th class='text-right'>Unit Price</th>
+                <th class='text-right' >Quantity</th>
+                <th class='text-right' >Sub Total</th>
+            </tr>
+            </thead>
+            <!--  Cart table to load data on "add to cart" action -->
+            <tbody id="cartTableBody">
+            </tbody>
+            <tfoot>
+            <tr>
+                <td class="text-right">Total:</td>
+                <td id="itemCount" class="text-right" colspan="2"></td>
+                <td id="totalAmount" class="text-right"></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</div>
+
 
 
 <footer id="footer">

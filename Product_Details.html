@@ -18,20 +18,38 @@
 <header id="header">
 </header>
 
-<section>
-    <img id="Product_details_img" src="assets/Men/Jacket/Jacket1.jpg" alt="Product Image">
-    <div class="product-details">
-        <div>
-            <h1 id="Product_details_name">Product Name</h1>
-            <p  id="Product_details_price">Price: $99.99</p>
-            <button>Add to Cart</button>
-        </div>
+
+
+<main class="Product_container">
+
+    <img id="Product_details_img" src="assets/Men/Pullovers/Pullover1.jpg" alt="Product" >
+
+    <!-- Right Column -->
+    <div class="right-column">
+
+        <!-- Product Description -->
         <div class="product-description">
-            <h2>Description</h2>
-            <p>Slim-fit trucker corduroy jacket made of 100% cotton. Featuring shearling lining and front button fastening.</p>
+            <h1 id="Product_details_name">Beats EP</h1>
+            <h3 style="text-align: left;">Description</h3>
+            <p id="Product_details_description">The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy headband and on-ear cushions suitable for live performance</p>
+        </div>
+
+        <div class="size-config">
+            <span>Size  :</span>
+            <div class="size-choose">
+                <button onclick="changeBackground(this)">Small</button>
+                <button onclick="changeBackground(this)">Medium</button>
+                <button onclick="changeBackground(this)">Large</button>
+            </div>
+        <!-- Product Pricing -->
+        <div class="product-price">
+            <span id="Product_details_price">148$</span>
+            <button onclick="addToCart()" class="cart-btn">Add to cart</button>
         </div>
     </div>
-</section>
+    </div>
+</main>
+
 
 <footer id="footer"></footer>
 <script src="Script.js"></script>
